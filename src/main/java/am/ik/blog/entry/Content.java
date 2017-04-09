@@ -2,6 +2,7 @@ package am.ik.blog.entry;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.EqualsAndHashCode;
@@ -20,6 +21,7 @@ public class Content implements Serializable {
 		return value;
 	}
 
+	@JsonIgnore
 	public boolean isEmpty() {
 		return value == null || value.isEmpty();
 	}
