@@ -26,7 +26,7 @@ public class EventTime implements Serializable {
 	}
 
 	@JsonProperty("date")
-	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	final OffsetDateTime value;
 
 	@Override
