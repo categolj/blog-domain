@@ -2,7 +2,9 @@ package am.ik.blog.entry;
 
 import java.io.Serializable;
 
+import am.ik.blog.entry.json.EntryDeserializer;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import lombok.*;
 
@@ -11,6 +13,7 @@ import lombok.*;
 @EqualsAndHashCode
 @Builder
 @Getter
+@JsonDeserialize(using = EntryDeserializer.class)
 public class Entry implements Serializable {
 	@JsonUnwrapped
 	final EntryId entryId;
