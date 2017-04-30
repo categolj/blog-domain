@@ -16,6 +16,8 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <name>blog-domain</name>
+
     <description>Blog Domain Model</description>
 
     <licenses>
