@@ -16,6 +16,31 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <description>Blog Domain Model</description>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/categolj/blog-domain</url>
+        <connection>scm:git:git@github.com:categolj/blog-domain.git</connection>
+        <developerConnection>scm:git:git@github.com:categolj/blog-domain.git</developerConnection>
+    </scm>
+    <url>https://github.com/categolj/blog-domain</url>
+
+    <developers>
+        <developer>
+            <id>making</id>
+            <name>Toshiaki Maki</name>
+            <email>makingx@gmail.com</email>
+            <url>https://twitter.com/making</url>
+        </developer>
+    </developers>
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
