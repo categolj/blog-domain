@@ -23,4 +23,9 @@ public class EntryId implements Serializable {
 	public String toString() {
 		return value == null ? null : value.toString();
 	}
+
+	public static EntryId fromFileName(String fileName) {
+		String entryId = fileName.replace(".md", "");
+		return new EntryId(Long.valueOf(entryId));
+	}
 }

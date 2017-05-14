@@ -40,4 +40,8 @@ public class Entry implements Serializable {
 		}
 		return builder.build();
 	}
+
+	public static boolean isPublicFileName(String fileName) {
+		return fileName.matches("[0-9]+\\.md");
+	}
 }
