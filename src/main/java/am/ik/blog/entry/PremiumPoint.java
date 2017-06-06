@@ -3,8 +3,10 @@ package am.ik.blog.entry;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -12,6 +14,7 @@ import lombok.Getter;
 @Getter
 public class PremiumPoint implements Serializable {
 	@JsonProperty("point")
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private final Integer value;
 
 	public static final PremiumPoint UNSET = new PremiumPoint(null);
