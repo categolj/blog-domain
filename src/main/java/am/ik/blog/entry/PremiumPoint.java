@@ -24,4 +24,9 @@ public class PremiumPoint implements Serializable {
 	public boolean isPremium() {
 		return value != null;
 	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(value);
+	}
 }
