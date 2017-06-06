@@ -26,6 +26,9 @@ public class FrontMatterDeserializer extends JsonObjectDeserializer<FrontMatter>
 		Categories categories = new Categories(
 				stream(jsonNode.get("categories").spliterator(), false)
 						.map(n -> new Category(n.asText())).collect(toList()));
-		return new FrontMatter(title, categories, tags, EventTime.UNSET, EventTime.UNSET);
+		PremiumPoint point = new PremiumPoint(
+				nullSafeValue(jsonNode.get("point"), Integer.class));
+		return new FrontMatter(title, categories, tags, EventTime.UNSET, EventTime.UNSET,
+				point);
 	}
 }

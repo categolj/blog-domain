@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.OffsetDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.EqualsAndHashCode;
@@ -28,6 +29,11 @@ public class EventTime implements Serializable {
 	@JsonProperty("date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	final OffsetDateTime value;
+
+	@JsonIgnore
+	public boolean isSet() {
+		return value != null;
+	}
 
 	@Override
 	public String toString() {

@@ -2,10 +2,11 @@ package am.ik.blog.entry;
 
 import java.io.Serializable;
 
-import am.ik.blog.entry.json.EntryDeserializer;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import am.ik.blog.entry.json.EntryDeserializer;
 import lombok.*;
 
 @RequiredArgsConstructor
@@ -41,7 +42,24 @@ public class Entry implements Serializable {
 		return builder.build();
 	}
 
+	@JsonIgnore
+	public boolean isPremium() {
+		return this.frontMatter.point.isPremium();
+	}
+
 	public static boolean isPublicFileName(String fileName) {
 		return fileName.matches("[0-9]+\\.md");
+	}
+
+	public EntryId entryId() {
+		return entryId;
+	}
+
+	public Content content() {
+		return content;
+	}
+
+	public FrontMatter frontMatter() {
+		return frontMatter;
 	}
 }
