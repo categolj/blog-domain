@@ -9,10 +9,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import am.ik.blog.entry.json.FrontMatterDeserializer;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-@RequiredArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Getter
@@ -32,6 +30,23 @@ public class FrontMatter implements Serializable {
 	final PremiumPoint point;
 
 	public static final String SEPARATOR = "---";
+
+	public FrontMatter(Title title, Categories categories, Tags tags, EventTime date,
+			EventTime updated, PremiumPoint point) {
+		this.title = title;
+		this.categories = categories;
+		this.tags = tags;
+		this.date = defaultValue(date, EventTime.UNSET);
+		this.updated = defaultValue(updated, EventTime.UNSET);
+		this.point = defaultValue(point, PremiumPoint.UNSET);
+	}
+
+	private <T> T defaultValue(T value, T defaultValue) {
+		if (value == null) {
+			return defaultValue;
+		}
+		return value;
+	}
 
 	public Title title() {
 		return title;
