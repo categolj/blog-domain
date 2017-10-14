@@ -34,8 +34,16 @@ public class EntryFactory {
 	}
 
 	public Optional<Entry.EntryBuilder> parseBody(EntryId entryId, InputStream body) {
-		final BufferedReader reader = new BufferedReader(
+		return this.parseBody(entryId,
 				new InputStreamReader(body, StandardCharsets.UTF_8));
+	}
+
+	public Optional<Entry.EntryBuilder> parseBody(EntryId entryId, String body) {
+		return this.parseBody(entryId, new StringReader(body));
+	}
+
+	private Optional<Entry.EntryBuilder> parseBody(EntryId entryId, Reader r) {
+		final BufferedReader reader = new BufferedReader(r);
 		Entry.EntryBuilder entryBuilder = Entry.builder();
 		entryBuilder.entryId(entryId);
 		try {
