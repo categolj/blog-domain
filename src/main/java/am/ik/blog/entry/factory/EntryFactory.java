@@ -25,18 +25,8 @@ public class EntryFactory {
 		this.frontMatterFactory = new FrontMatterFactory(yaml);
 	}
 
-	@Deprecated
-	static boolean isPublicFileName(String filename) {
-		return Entry.isPublicFileName(filename);
-	}
-
 	static boolean isPublic(Resource file) {
 		return file != null && Entry.isPublicFileName(file.getFilename());
-	}
-
-	@Deprecated
-	static EntryId parseEntryId(String filename) {
-		return EntryId.fromFileName(filename);
 	}
 
 	static EntryId parseEntryId(Resource file) {
