@@ -42,18 +42,22 @@ public class EventTime implements Serializable {
 		return value == null ? null : value.toString();
 	}
 
+	@JsonIgnore
 	public boolean isOverHalfYearOld() {
 		return this.isOld(6, ChronoUnit.MONTHS);
 	}
 
+	@JsonIgnore
 	public boolean isOverOneYearOld() {
 		return this.isOld(1, ChronoUnit.YEARS);
 	}
 
+	@JsonIgnore
 	public boolean isOverThreeYearsOld() {
 		return this.isOld(3, ChronoUnit.YEARS);
 	}
 
+	@JsonIgnore
 	public boolean isOverFiveYearsOld() {
 		return this.isOld(5, ChronoUnit.YEARS);
 	}
