@@ -6,8 +6,10 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @EqualsAndHashCode
+@Getter
 public class LastModified implements Serializable {
 	public static final LastModified EPOCH = new LastModified(0L);
 
