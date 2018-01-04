@@ -2,6 +2,8 @@ package am.ik.blog.entry;
 
 import java.io.Serializable;
 import java.time.OffsetDateTime;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -38,5 +40,26 @@ public class EventTime implements Serializable {
 	@Override
 	public String toString() {
 		return value == null ? null : value.toString();
+	}
+
+	public boolean isOverHalfYearOld() {
+		return this.isOld(6, ChronoUnit.MONTHS);
+	}
+
+	public boolean isOverOneYearOld() {
+		return this.isOld(1, ChronoUnit.YEARS);
+	}
+
+	public boolean isOverThreeYearsOld() {
+		return this.isOld(3, ChronoUnit.YEARS);
+	}
+
+	public boolean isOverFiveYearsOld() {
+		return this.isOld(5, ChronoUnit.YEARS);
+	}
+
+	private boolean isOld(long amount, TemporalUnit unit) {
+		return this.value.plus(amount, unit) //
+				.isBefore(OffsetDateTime.now());
 	}
 }
