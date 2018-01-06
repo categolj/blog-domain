@@ -6,7 +6,7 @@
 
     <groupId>am.ik.blog</groupId>
     <artifactId>blog-domain</artifactId>
-    <version>4.3.2</version>
+    <version>4.3.3-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>${java.version}</maven.compiler.source>
