@@ -1,8 +1,7 @@
 package am.ik.blog.entry;
 
-import static java.util.stream.Collectors.toList;
-
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collector;
@@ -10,12 +9,17 @@ import java.util.stream.Stream;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.EqualsAndHashCode;
+
+import static java.util.stream.Collectors.toList;
 
 @EqualsAndHashCode
 public class Categories implements Serializable {
 	final List<Category> value;
+
+	public Categories(Category... categories) {
+		this(Arrays.asList(categories));
+	}
 
 	public Categories(List<Category> value) {
 		if (value == null) {

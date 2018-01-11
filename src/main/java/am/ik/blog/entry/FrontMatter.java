@@ -2,11 +2,10 @@ package am.ik.blog.entry;
 
 import java.io.Serializable;
 
+import am.ik.blog.entry.json.FrontMatterDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import am.ik.blog.entry.json.FrontMatterDeserializer;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -39,6 +38,11 @@ public class FrontMatter implements Serializable {
 		this.date = defaultValue(date, EventTime.UNSET);
 		this.updated = defaultValue(updated, EventTime.UNSET);
 		this.point = defaultValue(point, PremiumPoint.UNSET);
+	}
+
+	public FrontMatter(Title title, Categories categories, Tags tags, EventTime date,
+			EventTime updated) {
+		this(title, categories, tags, date, updated, PremiumPoint.UNSET);
 	}
 
 	private <T> T defaultValue(T value, T defaultValue) {
