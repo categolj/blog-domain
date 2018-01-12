@@ -25,7 +25,7 @@ public class EntryId implements Serializable {
 	}
 
 	public static EntryId fromFileName(String fileName) {
-		String entryId = fileName.replace(".md", "");
+		String entryId = fileName.replace(".md", "").replace(".markdown", "");
 		return new EntryId(Long.valueOf(entryId));
 	}
 
