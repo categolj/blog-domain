@@ -45,6 +45,11 @@ public class FrontMatter implements Serializable {
 		this(title, categories, tags, date, updated, PremiumPoint.UNSET);
 	}
 
+	public FrontMatter(Title title, Categories categories, Tags tags) {
+		this(title, categories, tags, EventTime.UNSET, EventTime.UNSET,
+				PremiumPoint.UNSET);
+	}
+
 	private <T> T defaultValue(T value, T defaultValue) {
 		if (value == null) {
 			return defaultValue;
