@@ -2,13 +2,13 @@ package am.ik.blog.entry;
 
 import java.io.Serializable;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -65,5 +65,9 @@ public class EventTime implements Serializable {
 	private boolean isOld(long amount, TemporalUnit unit) {
 		return this.value.plus(amount, unit) //
 				.isBefore(OffsetDateTime.now());
+	}
+
+	public String rfc1123() {
+		return this.value.format(DateTimeFormatter.RFC_1123_DATE_TIME);
 	}
 }
